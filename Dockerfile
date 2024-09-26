@@ -9,7 +9,8 @@ RUN cd /app && git clone  https://github.com/cattodotpy/harrow.dev
 
 WORKDIR /app/harrow.dev
 
-RUN bun install --production   
+RUN bun install 
+RUN bun run build 
 
 FROM oven/bun:alpine
 
