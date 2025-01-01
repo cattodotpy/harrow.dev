@@ -1,13 +1,23 @@
 <script lang="ts">
-	import { onDestroy } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
 
 	let currentDate = $state(new Date());
 	let nextYear = $derived(new Date(currentDate.getFullYear() + 1, 0, 1));
 	let timeLeft: number = $state(0);
-	let dateString: string[][] = $state([]);
+	let dateString: string[][] = $state([
+		['0', '0', '0'],
+		['0', '0'],
+		['0', '0'],
+		['0', '0']
+	]);
 	let old = $state([] as string[][]);
 	let text = ['Days', 'Hours', 'Minutes', 'Seconds'];
-	let changed = $state([] as boolean[][]);
+	let changed = $state([
+		[false, false, false],
+		[false, false],
+		[false, false],
+		[false, false]
+	] as boolean[][]);
 	let days;
 	let hours;
 	let minutes;
@@ -45,6 +55,10 @@
 		}
 	}
 
+	onMount(() => {
+		updateTime();
+	});
+
 	let interval = setInterval(updateTime, 500);
 
 	onDestroy(() => {
@@ -77,7 +91,7 @@
 							<div class="flip-clock-item" id="{i}-{j}">
 								<div class="top {changed[i][j] ? 'animate bg-slate-700' : 'bg-slate-500'}"></div>
 								<div class="text">{digit}</div>
-								<div class="bottom bg-slate-500"></div>
+								<div class="bottom {changed[i][j] ? 'animate bg-slate-700' : 'bg-slate-500'}"></div>
 							</div>
 						{/each}
 					</div>
