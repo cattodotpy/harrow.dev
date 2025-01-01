@@ -63,12 +63,12 @@
 <main
 	class="flex h-screen w-screen flex-col items-center justify-center bg-gradient-to-r from-gray-800 via-gray-900 to-black p-10 text-center text-3xl text-white"
 >
-	<h1 class="mb-10 text-[2vw] font-bold drop-shadow-lg">
+	<h1 class="mb-10 text-[2vh] font-bold drop-shadow-lg">
 		{currentDate.getFullYear()} still have...
 	</h1>
 
 	<div class="countdown-container">
-		<div class="flip-clock">
+		<div class="flex flex-col gap-10 sm:flex-col md:flex-col lg:flex-row xl:flex-row">
 			{#each dateString as digits, i}
 				<div class="flip-clock-column">
 					<p class="text-2xl font-bold drop-shadow-lg">{text[i]}</p>
@@ -86,7 +86,7 @@
 		</div>
 	</div>
 
-	<div class="mt-10 flex w-full flex-col gap-2 text-4xl font-bold drop-shadow-lg">
+	<div class="mt-10 flex w-full flex-col gap-2 text-[2vh] font-bold drop-shadow-lg">
 		{#if timeLeft > 0}
 			<!-- percentage -->
 			This year is {(100 - (timeLeft / (1000 * 60 * 60 * 24 * 365)) * 100).toFixed(2)}% complete
@@ -112,12 +112,8 @@
 		justify-content: center;
 		align-items: center;
 		padding: 1.5rem;
-	}
-
-	.flip-clock {
-		display: flex;
-		flex-direction: row;
-		gap: 5rem;
+		height: 50vh;
+		width: 100%;
 	}
 
 	.flip-clock-item {
