@@ -52,6 +52,14 @@
 	});
 </script>
 
+<svelte:head>
+	<title>Countdown</title>
+	<meta name="description" content="A countdown to the next year" />
+	<meta name="keywords" content="svelte, countdown, new year" />
+	<meta name="author" content="Harrow Fung" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+</svelte:head>
+
 <main
 	class="flex h-screen w-screen flex-col items-center justify-center bg-gradient-to-r from-gray-800 via-gray-900 to-black p-10 text-center text-3xl text-white"
 >

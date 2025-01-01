@@ -77,3 +77,9 @@
 		</div>
 	</div>
 </div>
+
+<svelte:head>
+	<title>Harrow Fung</title>
+	<meta name="description" content="random website made by harrow." />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+</svelte:head>
